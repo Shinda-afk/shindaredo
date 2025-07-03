@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UAS Web Dasar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #1e293b, #0f172a);
+      color: #e5e7eb;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #3b3f58, #1e293b);
+      color: #ffffff;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      background-color: #111827;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      margin: 0;
+    }
+
+    nav a {
+      display: block;
+      padding: 14px 22px;
+      color: #f3f4f6;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #374151;
+      border-radius: 6px;
+    }
+
+    .content {
+      padding: 50px 20px;
+      text-align: center;
+      background: rgba(30, 41, 59, 0.9);
+      min-height: 500px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .content h2, .content h3 {
+      color: #93c5fd;
+    }
+
+    .content img, .content video, .content iframe {
+      margin-top: 20px;
+      max-width: 80%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .content img:hover, .content video:hover {
+      transform: scale(1.05);
+    }
+
+    .widgets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+      background: #1f2937;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .widget {
+      background-color: #2d3748;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      font-size: 14px;
+      color: #e5e7eb;
+      min-width: 220px;
+      flex: 1 1 250px;
+    }
+
+    .widget h3 {
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+
+    .widget a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .widget a:hover {
+      color: #93c5fd;
+    }
+
+    footer {
+      background-color: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    canvas#rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+      .content img, .content video {
+        width: 90%;
+      }
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      alert("Selamat datang di Website UAS!");
+
+      const canvas = document.getElementById("rain");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const drops = [];
+      for (let i = 0; i < 300; i++) {
+        drops.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          length: Math.random() * 15 + 8,
+          speed: Math.random() * 3 + 3,
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = "rgba(147, 197, 253, 0.15)";
+        ctx.lineWidth = 1;
+        for (let i = 0; i < drops.length; i++) {
+          const d = drops[i];
+          ctx.beginPath();
+          ctx.moveTo(d.x, d.y);
+          ctx.lineTo(d.x, d.y + d.length);
+          ctx.stroke();
+          d.y += d.speed;
+          if (d.y > canvas.height) {
+            d.y = -d.length;
+            d.x = Math.random() * canvas.width;
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    };
+  </script>
+</head>
+
+<body>
+<canvas id="rain"></canvas>
+
+<header>
+  <h1>Website UAS Web Dasar</h1>
+  <p>Selamat datang di website saya</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="beranda.html">Beranda</a></li>
+    <li><a href="profil.html">Profil</a></li>
+    <li><a href="kontak.html">Kontak</a></li>
+  </ul>
+</nav>
+
+<section class="content">
+  <h2>Konten Utama</h2>
+  <p>Menampilkan foto dan video </p>
+
+  <h3>Musik mengalun dan mengalirkan perasaan</h3>
+  <img src="123.jpeg" alt="Buku dan Spotify - Shinda Redo" style="max-width: 200px;" />
+
+  <h3>Tidak apa-apa jalannya susah, asalkan puncaknya kamu</h3>
+  <img src="rinjani.jpeg" alt="Gunung Rinjani 3726 mdpl" style="max-width: 200px;" />
+
+  <h3>Video Eksplorasi</h3>
+  <video width="480" height="270" controls>
+    <source src="snaptik_7522790794953067783.mp4" type="video/mp4">
+    Browser tidak mendukung video.
+  </video>
+</section>
+
+<section class="widgets">
+  <div class="widget">
+    <h3>Kontak</h3>
+    <p>Email: shinda@gmail.com<br />Telp: 088888888</p>
+  </div>
+  <div class="widget">
+    <h3>Klik Here!</h3>
+    <a href="https://www.youtube.com/" target="_blank">Pusat Bantuan</a>
+  </div>
+  <div class="widget">
+    <h3>SIAPA AKU</h3>
+    <p>Shinda Redo<br />2401162009</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 - UAS Web Dasar | Nama: Shinda Redo
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Profil Shinda Redo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2b2d42, #8d99ae);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 50px auto;
+      padding: 40px;
+      background: rgba(30, 41, 59, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+
+    h1 {
+      color: #60a5fa;
+      font-size: 38px;
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+    }
+
+    .profile-info img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #60a5fa;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .profile-info img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-info h2 {
+      font-size: 32px;
+      margin-top: 20px;
+      color: #f3f4f6;
+    }
+
+    .profile-info p {
+      font-size: 18px;
+      color: #9ca3af;
+      margin-top: 5px;
+    }
+
+    .bio {
+      margin-top: 30px;
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: justify;
+      background-color: rgba(51, 65, 85, 0.8);
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      color: #e5e7eb;
+      transition: transform 0.3s ease;
+    }
+
+    .bio:hover {
+      transform: translateY(-5px);
+    }
+
+    .highlight {
+      color: #60a5fa;
+      font-weight: bold;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .image-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .back-btn {
+      background-color: #60a5fa;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      margin: 15px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #3b82f6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    /* Animasi teks */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-info h2, .bio p {
+      animation: fadeIn 1s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>My Profile</h1>
+
+    <div class="profile-info">
+      <img src="Home - Palestra _ Juliana Goes.jpeg" alt="Foto Shinda">
+      <h2>Shinda Redo</h2>
+      <p>Student | 19 Years Old | Male</p>
+    </div>
+
+    <div class="bio">
+      Hi! I am <span class="highlight">Shinda Redo</span>, a 19-year-old student with a great love for <span class="highlight">nature and adventure</span>. I enjoy hiking, exploring new places, and breathing the fresh mountain or forest air.
+
+      <br><br>
+      For me, life is not just about doing the same thing every day. It’s about <span class="highlight">finding meaning and joy</span>. That’s why I always look for new experiences that grow my heart, open my mind, and bring a smile.
+
+      <br><br>
+      I believe that every journey, whether outside or inside, helps us know ourselves and the world better.
+    </div>
+
+    <!-- Galeri Gambar -->
+    <div class="image-gallery">
+      <img src="download (1).jpeg" alt="Hiking Mountain" />
+      <img src="download.jpeg" alt="Nature View" />
+      <img src="I Wanna Be Yours - Artic Monkeys.jpeg" alt="Forest Adventure" />
+      <img src="Soulmate sketch.jpeg" alt="Peaceful Moments" />
+    </div>
+
+    <!-- Tombol Navigasi -->
+    <div style="margin-top: 30px;">
+      <a href="beranda.html" class="back-btn">Back to Beranda</a>
+      <a href="kontak.html" class="back-btn">Go to Contact</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 - Shinda Redo's Profile
+  </footer>
+
+</body>
+</html>
